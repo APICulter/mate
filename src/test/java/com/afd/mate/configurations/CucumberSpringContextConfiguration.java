@@ -17,7 +17,7 @@ import org.springframework.test.context.TestPropertySource;
 
 @CucumberContextConfiguration
 @SpringBootTest
-@TestPropertySource(properties = "spring.mongodb.embedded.version=3.5.5")
+//@TestPropertySource("classpath:application.properties")
 public class CucumberSpringContextConfiguration {
 
     private static final Logger LOG = LoggerFactory.getLogger(CucumberSpringContextConfiguration.class);

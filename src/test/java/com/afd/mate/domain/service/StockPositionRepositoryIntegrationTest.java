@@ -4,8 +4,6 @@ import com.afd.mate.domain.model.DomainModelFaker;
 import com.afd.mate.domain.model.StockPosition;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.TestPropertySource;
@@ -16,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataMongoTest
-@TestPropertySource(properties = "spring.mongodb.embedded.version=3.5.5")
+//@TestPropertySource("classpath:application.properties")
 class StockPositionRepositoryIntegrationTest {
     @Autowired
     private StockPositionRepository repository;

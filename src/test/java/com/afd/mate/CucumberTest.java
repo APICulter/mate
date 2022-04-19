@@ -9,6 +9,6 @@ import org.springframework.test.context.TestPropertySource;
 @CucumberOptions(features = "classpath:features",
         glue = {"com.afd.mate.e2e", "com.afd.mate.configurations"},
         plugin = {"pretty", "json:target/cucumber-report.json"})
-@TestPropertySource(properties = "spring.mongodb.embedded.version=3.5.5")
+//@TestPropertySource("classpath:application.properties")
 public class CucumberTest {
 }

@@ -1,1 +1,153 @@
-[]
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-04-19T09:29:55.419Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6543000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.afd.mate.configurations.CucumberSpringContextConfiguration.setUp()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Get Stock Position and Market Value",
+        "description": "",
+        "id": "get-stock-position-and-marketvalue;get-stock-position-and-market-value",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 773138000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I have in database a fakeStockPosition",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.iHaveInDatabaseAFakeStockPosition()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1440170000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I want to retrieve by API my Stock Position and Market Value associated",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.iWantToRetrieveByAPIMyStockPositionAndMarketValueAssociated()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 92265000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Value retrieved are corresponding to the value of the fake stock position",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.valueRetrievedAreCorrespondingToTheValueOfTheFakeStockPosition()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 179000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Market value in the object is filled",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.marketValueInTheObjectIsFilled()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-04-19T09:29:57.829Z",
+        "before": [
+          {
+            "result": {
+              "duration": 824000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.afd.mate.configurations.CucumberSpringContextConfiguration.setUp()"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "Get Stock Position and Market Value With Generated API",
+        "description": "",
+        "id": "get-stock-position-and-marketvalue;get-stock-position-and-market-value-with-generated-api",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 15129000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I have in database a fakeStockPosition",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.iHaveInDatabaseAFakeStockPosition()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 364511000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I want to retrieve by generated API my Stock Position and Market Value associated",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.iWantToRetrieveByGeneratedAPIMyStockPositionAndMarketValueAssociated()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 9886000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Value retrieved in response body are corresponding to the value of the fake stock position",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.valueRetrievedInResponseBodyAreCorrespondingToTheValueOfTheFakeStockPosition()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 118000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "Market value in the object in response body is filled",
+            "match": {
+              "location": "com.afd.mate.e2e.MyStepdefs.marketValueInTheObjectInResponseBodyIsFilled()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Get Stock Position and MarketValue",
+    "description": "",
+    "id": "get-stock-position-and-marketvalue",
+    "keyword": "Feature",
+    "uri": "classpath:features/GetStockPositionAndMarketValueTest.feature",
+    "tags": []
+  }
+]
