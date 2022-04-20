@@ -3,21 +3,19 @@ package com.afd.mate.api;
 import com.afd.mate.domain.model.StockPosition;
 import com.afd.mate.domain.service.GetStockMarketValueService;
 import com.afd.mate.domain.service.GetStockPositionService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.afd.mate.domain.service.PostStockPositionService;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
-
-import java.math.BigDecimal;
-import java.security.Principal;
 
 @RestController
 public class StockPositionsController {
     private final GetStockPositionService getStockPositionService;
+    private final PostStockPositionService postStockPositionService;
     private final GetStockMarketValueService getStockMarketValueService;
 
-    public StockPositionsController(GetStockPositionService getStockPositionService, GetStockMarketValueService getStockMarketValueService){
+    public StockPositionsController(GetStockPositionService getStockPositionService, PostStockPositionService postStockPositionService, GetStockMarketValueService getStockMarketValueService){
         this.getStockPositionService = getStockPositionService;
+        this.postStockPositionService = postStockPositionService;
         this.getStockMarketValueService = getStockMarketValueService;
     }
 
@@ -35,5 +33,12 @@ public class StockPositionsController {
                                 // placeholders
                                 marketValue
                         ));
+    }
+
+    @PostMapping("/stock-position-market-value/create")
+    Mono<StockPosition> createPositionAndMarketValue(
+            @RequestBody StockPosition createSP
+    ){
+        return postStockPositionService.post(createSP);
     }
 }
