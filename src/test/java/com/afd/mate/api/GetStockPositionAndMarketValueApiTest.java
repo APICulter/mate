@@ -4,6 +4,7 @@ import com.afd.mate.domain.model.DomainModelFaker;
 import com.afd.mate.domain.model.StockPosition;
 import com.afd.mate.domain.service.GetStockMarketValueService;
 import com.afd.mate.domain.service.GetStockPositionService;
+import com.afd.mate.domain.service.PostStockPositionService;
 import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.Test;
 
@@ -33,6 +34,9 @@ public class GetStockPositionAndMarketValueApiTest {
     private GetStockMarketValueService getStockMarketValueService;
     @MockBean
     private DomainModelFaker domainModelFaker;
+
+    @MockBean
+    private PostStockPositionService postStockPositionService;
 
 
 

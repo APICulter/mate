@@ -2,13 +2,17 @@ com/afd/mate/alphavantage/AlphaVantageGetStockMarketPrice.class
 com/afd/mate/domain/service/GetStockMarketPricePort.class
 com/afd/mate/api/AutoStockPositionMarketValueApi$1.class
 com/afd/mate/api/GetStockPositionAndMarketValueApiResponseDto.class
+com/afd/mate/domain/service/PostStockPositionService.class
+com/afd/mate/domain/model/PostStockPositionAndMarketValueApiResponseDTOAuto.class
 com/afd/mate/api/AutoStockPositionMarketValueApiDelegate.class
 com/afd/mate/domain/mongo/ReactiveMongoStockPositionRepository.class
 com/afd/mate/alphavantage/AlphaVantageTimeSeriesDailyJsonDaily.class
+com/afd/mate/domain/model/StockPositionAndMarketValue.class
 com/afd/mate/api/StockPositionsController.class
 com/afd/mate/MateApplication.class
 com/afd/mate/alphavantage/AlphaVantageTimeSeriesDailyJsonMetaData.class
 com/afd/mate/api/AutoStockPositionMarketValueApiController$1.class
+com/afd/mate/api/PostStockPositionAndMarketValueApiResponseDto.class
 com/afd/mate/api/ApiUtil.class
 com/afd/mate/domain/service/StockPositionRepository.class
 com/afd/mate/domain/service/GetStockMarketValueService.class

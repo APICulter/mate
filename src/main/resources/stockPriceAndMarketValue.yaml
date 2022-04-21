@@ -11,29 +11,40 @@ externalDocs:
   description: Find out more about Swagger
   url: http://swagger.io
 servers:
-- url: https://petstore.swagger.io/v2
-- url: http://petstore.swagger.io/v2
+  - url: https://petstore.swagger.io/v2
+  - url: http://petstore.swagger.io/v2
 paths:
   /auto-stock-position-market-value/{symbol}:
     get:
       summary: Find stock position and market value by symbol
       description: Returns a GetStockPositionAndMarketValueApiResponseDTO
       parameters:
-      - name: symbol
-        in: path
-        description: name of the symbol
-        required: true
-        schema:
-          type: string
+        - name: symbol
+          in: path
+          description: name of the symbol
+          required: true
+          schema:
+            type: string
       responses:
-        200:
+        '200':
           description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetStockPositionAndMarketValueApiResponseDTOAuto'
-    
-  
+  /auto-stock-position-market-value:
+    post:
+      summary: Add a new Symbol
+      requestBody:
+        description: Returns PostStockPositionAndMarketValueApiResponse
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostStockPositionAndMarketValueApiResponseDTOAuto'
+        required: true
+      responses:
+        '201':
+          description: Symbol created
 components:
   schemas:
     GetStockPositionAndMarketValueApiResponseDTOAuto:
@@ -52,3 +63,24 @@ components:
         marketValue:
           type: number
           format: double
+    PostStockPositionAndMarketValueApiResponseDTOAuto:
+      type: object
+      properties:
+        symbol:
+          type: string
+        quantity:
+          type: number
+          format: double
+        currencyCode:
+          type: string
+
+    StockPositionAndMarketValue:
+      type: object
+      properties:
+        symbol:
+          type: string
+        quantity:
+          type: number
+          format: double
+        currencyCode:
+          type: string

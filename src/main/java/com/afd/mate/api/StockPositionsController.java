@@ -35,7 +35,7 @@ public class StockPositionsController {
                         ));
     }
 
-    @PostMapping("/stock-position-market-value/create")
+    @PostMapping("/stock-position-market-value")
     Mono<StockPosition> createPositionAndMarketValue(
             @RequestBody StockPosition createSP
     ){

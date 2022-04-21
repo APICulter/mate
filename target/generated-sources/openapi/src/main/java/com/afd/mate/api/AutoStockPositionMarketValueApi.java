@@ -6,6 +6,7 @@
 package com.afd.mate.api;
 
 import com.afd.mate.domain.model.GetStockPositionAndMarketValueApiResponseDTOAuto;
+import com.afd.mate.domain.model.PostStockPositionAndMarketValueApiResponseDTOAuto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -29,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-10T18:00:51.843525606Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-21T14:57:06.350743Z[Etc/UTC]")
 @Validated
 @Tag(name = "auto-stock-position-market-value", description = "the auto-stock-position-market-value API")
 public interface AutoStockPositionMarketValueApi {
@@ -37,6 +38,32 @@ public interface AutoStockPositionMarketValueApi {
     default AutoStockPositionMarketValueApiDelegate getDelegate() {
         return new AutoStockPositionMarketValueApiDelegate() {};
     }
+
+    /**
+     * POST /auto-stock-position-market-value : Add a new Symbol
+     *
+     * @param postStockPositionAndMarketValueApiResponseDTOAuto Returns PostStockPositionAndMarketValueApiResponse (required)
+     * @return Symbol created (status code 201)
+     */
+    @Operation(
+        operationId = "autoStockPositionMarketValuePost",
+        summary = "Add a new Symbol",
+        responses = {
+            @ApiResponse(responseCode = "201", description = "Symbol created")
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.POST,
+        value = "/auto-stock-position-market-value",
+        consumes = { "application/json" }
+    )
+    default Mono<ResponseEntity<Void>> autoStockPositionMarketValuePost(
+        @Parameter(name = "PostStockPositionAndMarketValueApiResponseDTOAuto", description = "Returns PostStockPositionAndMarketValueApiResponse", required = true, schema = @Schema(description = "")) @Valid @RequestBody Mono<PostStockPositionAndMarketValueApiResponseDTOAuto> postStockPositionAndMarketValueApiResponseDTOAuto,
+        @Parameter(hidden = true) final ServerWebExchange exchange
+    ) {
+        return getDelegate().autoStockPositionMarketValuePost(postStockPositionAndMarketValueApiResponseDTOAuto, exchange);
+    }
+
 
     /**
      * GET /auto-stock-position-market-value/{symbol} : Find stock position and market value by symbol

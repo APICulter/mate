@@ -3,3 +3,5 @@ src/main/java/com/afd/mate/api/AutoStockPositionMarketValueApi.java
 src/main/java/com/afd/mate/api/AutoStockPositionMarketValueApiController.java
 src/main/java/com/afd/mate/api/AutoStockPositionMarketValueApiDelegate.java
 src/main/java/com/afd/mate/domain/model/GetStockPositionAndMarketValueApiResponseDTOAuto.java
+src/main/java/com/afd/mate/domain/model/PostStockPositionAndMarketValueApiResponseDTOAuto.java
+src/main/java/com/afd/mate/domain/model/StockPositionAndMarketValue.java

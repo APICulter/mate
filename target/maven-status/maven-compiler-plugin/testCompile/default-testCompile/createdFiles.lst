@@ -1,9 +1,9 @@
 com/afd/mate/api/GetStockPositionAndMarketValueApiE2ETest.class
 com/afd/mate/domain/service/GetStockMarketPricePortIntegrationTest.class
 com/afd/mate/domain/service/GetStockPositionServiceTest.class
+com/afd/mate/e2e/MyStepdefs.class
 com/afd/mate/CucumberTest.class
 com/afd/mate/domain/service/GetStockMarketValueServiceTest.class
-com/afd/mate/e2e/MyStepdefs.class
 com/afd/mate/api/GetStockPositionAndMarketValueApiTest.class
 com/afd/mate/configurations/CucumberSpringContextConfiguration.class
 com/afd/mate/domain/service/StockPositionRepositoryIntegrationTest.class

@@ -1,6 +1,7 @@
 package com.afd.mate.api;
 
 import com.afd.mate.domain.model.GetStockPositionAndMarketValueApiResponseDTOAuto;
+import com.afd.mate.domain.model.PostStockPositionAndMarketValueApiResponseDTOAuto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +21,26 @@ import javax.annotation.Generated;
  * A delegate to be called by the {@link AutoStockPositionMarketValueApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-10T18:00:51.843525606Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-21T14:57:06.350743Z[Etc/UTC]")
 public interface AutoStockPositionMarketValueApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
         return Optional.empty();
+    }
+
+    /**
+     * POST /auto-stock-position-market-value : Add a new Symbol
+     *
+     * @param postStockPositionAndMarketValueApiResponseDTOAuto Returns PostStockPositionAndMarketValueApiResponse (required)
+     * @return Symbol created (status code 201)
+     * @see AutoStockPositionMarketValueApi#autoStockPositionMarketValuePost
+     */
+    default Mono<ResponseEntity<Void>> autoStockPositionMarketValuePost(Mono<PostStockPositionAndMarketValueApiResponseDTOAuto> postStockPositionAndMarketValueApiResponseDTOAuto,
+        ServerWebExchange exchange) {
+        Mono<Void> result = Mono.empty();
+        exchange.getResponse().setStatusCode(HttpStatus.NOT_IMPLEMENTED);
+        return result.then(Mono.empty());
+
     }
 
     /**
