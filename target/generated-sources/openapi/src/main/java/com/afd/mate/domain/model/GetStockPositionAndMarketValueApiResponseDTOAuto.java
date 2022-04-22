@@ -18,7 +18,7 @@ import javax.annotation.Generated;
  * GetStockPositionAndMarketValueApiResponseDTOAuto
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-22T08:14:17.448836Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-22T14:41:08.768562Z[Etc/UTC]")
 public class GetStockPositionAndMarketValueApiResponseDTOAuto   {
 
   @JsonProperty("symbol")

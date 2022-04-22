@@ -41,6 +41,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class MyStepdefs {
@@ -55,8 +56,11 @@ public class MyStepdefs {
 
 
     WebTestClient client;
+    WebTestClient clientCreate;
+
 
     WebTestClient.ResponseSpec clientResponse;
+
     String symbol;
     StockPosition fakeStockPosition;
     StockPosition fakeStockPositionCreate;
@@ -130,23 +134,24 @@ public class MyStepdefs {
 
     @When("I want to insert by API a Stock Position")
     public void iWantToInsertByAPIAStockPosition() {
-        fakeStockPositionCreate = new StockPosition();
-        fakeStockPositionCreate.setSymbol("IBM");
-        fakeStockPositionCreate.setCost(BigDecimal.valueOf(1223));
-        fakeStockPositionCreate.setQuantity(BigDecimal.valueOf(789465));
-        fakeStockPositionCreate.setCurrencyCode("USD");
-        ObjectMapper create = new ObjectMapper();
-//        try {
-//           clientResponse = client.post().uri("/v2/auto-stock-position-market-value/").contentType(MediaType.APPLICATION_JSON).bodyValue(create.writeValueAsString(fakeStockPositionCreate)).exchange();
-//        } catch (Exception e){
-//            System.out.println("raté");
-//        }
-        Gson jsonCreate = new Gson();
-        String body = jsonCreate.toJson(fakeStockPositionCreate);
-        clientResponse = client.post().uri("/v2/auto-stock-position-market-value/").contentType(MediaType.APPLICATION_JSON).bodyValue(body).exchange();
+        symbol = domainModelFaker.fakeStockSymbol();
+        fakeStockPositionCreate = domainModelFaker.getFakeStockPosition(symbol);
 
+        Gson jsonCreate = new Gson();
+
+        clientCreate = WebTestClient.bindToApplicationContext(context).build();
+        clientResponse = clientCreate.post().uri("/v2/auto-stock-position-market-value/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(jsonCreate.toJson(fakeStockPositionCreate))
+                .exchange();
     }
 
-
-
+    @When("Cost is equal to marketValue")
+    public void costIsEqualToMarketValue(){
+        clientResponse.expectStatus().isOk()
+                .expectBody(GetStockPositionAndMarketValueApiResponseDTOAuto.class)
+                .value(dto -> assertAll(
+                        () ->  assertThat(dto.getMarketValue()).isEqualTo(dto.getCost()))
+                );
+    }
 }
