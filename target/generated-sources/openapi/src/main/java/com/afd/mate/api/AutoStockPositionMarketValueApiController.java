@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-21T14:57:06.350743Z[Etc/UTC]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-04-22T08:14:17.448836Z[Etc/UTC]")
 @Controller
 @RequestMapping("${openapi.stockPositionAndMarketValue.base-path:/v2}")
 public class AutoStockPositionMarketValueApiController implements AutoStockPositionMarketValueApi {

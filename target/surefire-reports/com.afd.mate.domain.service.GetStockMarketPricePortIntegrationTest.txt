@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.afd.mate.domain.service.GetStockMarketPricePortIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.298 s - in com.afd.mate.domain.service.GetStockMarketPricePortIntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 s - in com.afd.mate.domain.service.GetStockMarketPricePortIntegrationTest

@@ -73,14 +73,3 @@ components:
           format: double
         currencyCode:
           type: string
-
-    StockPositionAndMarketValue:
-      type: object
-      properties:
-        symbol:
-          type: string
-        quantity:
-          type: number
-          format: double
-        currencyCode:
-          type: string

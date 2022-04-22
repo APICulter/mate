@@ -10,12 +10,10 @@ import reactor.core.publisher.Mono;
 @RestController
 public class StockPositionsController {
     private final GetStockPositionService getStockPositionService;
-    private final PostStockPositionService postStockPositionService;
     private final GetStockMarketValueService getStockMarketValueService;
 
-    public StockPositionsController(GetStockPositionService getStockPositionService, PostStockPositionService postStockPositionService, GetStockMarketValueService getStockMarketValueService){
+    public StockPositionsController(GetStockPositionService getStockPositionService, GetStockMarketValueService getStockMarketValueService){
         this.getStockPositionService = getStockPositionService;
-        this.postStockPositionService = postStockPositionService;
         this.getStockMarketValueService = getStockMarketValueService;
     }
 
@@ -35,10 +33,5 @@ public class StockPositionsController {
                         ));
     }
 
-    @PostMapping("/stock-position-market-value")
-    Mono<StockPosition> createPositionAndMarketValue(
-            @RequestBody StockPosition createSP
-    ){
-        return postStockPositionService.post(createSP);
-    }
+
 }
