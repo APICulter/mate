@@ -3,8 +3,10 @@ package com.afd.mate.e2e;
 import com.afd.mate.api.GetStockPositionAndMarketValueApiResponseDto;
 import com.afd.mate.domain.model.DomainModelFaker;
 import com.afd.mate.domain.model.GetStockPositionAndMarketValueApiResponseDTOAuto;
+import com.afd.mate.domain.model.PostStockPositionAndMarketValueApiResponseDTOAuto;
 import com.afd.mate.domain.model.StockPosition;
 import com.afd.mate.domain.service.StockPositionRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
@@ -12,7 +14,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
+import io.cucumber.messages.internal.com.google.gson.Gson;
 import io.cucumber.spring.CucumberContextConfiguration;
+import net.minidev.json.JSONObject;
 import org.assertj.core.data.Offset;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +35,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.client.MockMvcWebTestClient;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +59,7 @@ public class MyStepdefs {
     WebTestClient.ResponseSpec clientResponse;
     String symbol;
     StockPosition fakeStockPosition;
-
+    StockPosition fakeStockPositionCreate;
 
     @Given("I have in database a fakeStockPosition")
     public void iHaveInDatabaseAFakeStockPosition() {
@@ -117,4 +122,31 @@ public class MyStepdefs {
     @And("Market value in the object in response body is filled")
     public void marketValueInTheObjectInResponseBodyIsFilled() {
     }
+
+    @Given("I have am empty Database")
+    public void iHaveAmEmptyDatabase() {
+        repository.deleteAll();
+    }
+
+    @When("I want to insert by API a Stock Position")
+    public void iWantToInsertByAPIAStockPosition() {
+        fakeStockPositionCreate = new StockPosition();
+        fakeStockPositionCreate.setSymbol("IBM");
+        fakeStockPositionCreate.setCost(BigDecimal.valueOf(1223));
+        fakeStockPositionCreate.setQuantity(BigDecimal.valueOf(789465));
+        fakeStockPositionCreate.setCurrencyCode("USD");
+        ObjectMapper create = new ObjectMapper();
+//        try {
+//           clientResponse = client.post().uri("/v2/auto-stock-position-market-value/").contentType(MediaType.APPLICATION_JSON).bodyValue(create.writeValueAsString(fakeStockPositionCreate)).exchange();
+//        } catch (Exception e){
+//            System.out.println("raté");
+//        }
+        Gson jsonCreate = new Gson();
+        String body = jsonCreate.toJson(fakeStockPositionCreate);
+        clientResponse = client.post().uri("/v2/auto-stock-position-market-value/").contentType(MediaType.APPLICATION_JSON).bodyValue(body).exchange();
+
+    }
+
+
+
 }

@@ -30,4 +30,9 @@ public class DomainModelFaker {
     public static String fakeStockSymbol() {
         return faker.stock().nsdqSymbol();
     }
+
+//    public static StockPosition setFakeStockPosition(String symbol, BigDecimal quantity, Code code, BigDecimal amount) {
+//        faker.code(code);
+//
+//    }
 }

@@ -8,7 +8,7 @@ import org.springframework.test.context.TestPropertySource;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features",
         glue = {"com.afd.mate.e2e", "com.afd.mate.configurations"},
-        plugin = {"pretty", "json:target/cucumber-report.json"})
+        plugin = {"pretty", "html:target/cucumber-report.html"})
 //@TestPropertySource("classpath:application.properties")
 public class CucumberTest {
 }
